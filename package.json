@@ -1,0 +1,11 @@
+{
+  "name": "b2b-seo-blog-skill",
+  "version": "1.0.0",
+  "description": "OpenClaw Skill for B2B SEO blog generation",
+  "main": "handlers/generate_b2b_seo_blog.js",
+  "type": "module",
+  "dependencies": {
+    "openai": "^4.0.0",
+    "yargs": "^17.0.0"
+  }
+}
