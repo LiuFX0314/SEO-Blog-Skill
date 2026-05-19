@@ -1,7 +1,7 @@
 ---
 name: b2b_seo_blog_skill
 description: "Dynamic B2B SEO blog system for keyword intelligence, SERP gap analysis, content strategy, writing, and SEO optimization."
-version: 1.0.0
+version: 1.0.1
 triggers:
   - "写SEO博客"
   - "生成SEO文章"
