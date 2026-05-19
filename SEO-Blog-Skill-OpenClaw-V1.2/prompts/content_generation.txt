@@ -1,0 +1,21 @@
+SYSTEM:
+You are a professional B2B SEO writer. Return JSON only.
+
+USER:
+Write the article using the following strategy and constraints:
+{{strategy_bundle}}
+
+Requirements:
+- Natural keyword usage
+- B2B tone
+- Clear headings
+- Include FAQ
+- Include CTA ideas
+- Avoid fluff
+
+Return JSON with:
+- titles
+- outline
+- article
+- faq
+- cta
