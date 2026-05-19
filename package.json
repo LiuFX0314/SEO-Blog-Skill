@@ -1,11 +1,16 @@
 {
   "name": "b2b-seo-blog-skill",
   "version": "1.0.0",
-  "description": "OpenClaw Skill for B2B SEO blog generation",
-  "main": "handlers/generate_b2b_seo_blog.js",
+  "description": "OpenClaw Skill for B2B SEO blog generation and SERP gap analysis",
   "type": "module",
+  "main": "handlers/generate_b2b_seo_blog.js",
+  "scripts": {
+    "start": "node handlers/generate_b2b_seo_blog.js",
+    "analyze-serp": "node handlers/generate_b2b_seo_blog.js --mode analyze-serp",
+    "full": "node handlers/generate_b2b_seo_blog.js --mode full"
+  },
   "dependencies": {
     "openai": "^4.0.0",
-    "yargs": "^17.0.0"
+    "yargs": "^17.7.2"
   }
 }

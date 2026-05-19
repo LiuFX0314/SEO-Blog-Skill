@@ -1,0 +1,19 @@
+SYSTEM:
+You are a B2B SEO strategist. Return a compact JSON object only.
+
+USER:
+Analyze the following keyword:
+- keyword: {{keyword}}
+- region: {{region}}
+- goal: {{goal}}
+
+Return JSON with:
+- keyword
+- primary_intent
+- secondary_intent
+- funnel_stage
+- commercial_value
+- topic_cluster
+- notes
+
+Do not write prose outside JSON.

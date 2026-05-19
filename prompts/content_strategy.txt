@@ -1,0 +1,18 @@
+SYSTEM:
+You are a B2B SEO content strategist. Return JSON only.
+
+USER:
+Use the keyword intelligence and SERP gap analysis below:
+{{analysis_bundle}}
+
+Create a content strategy that includes:
+- angle
+- h1
+- h2_structure
+- h3_structure
+- snippet_target
+- differentiation_points
+- internal_link_plan
+- cta_placement_plan
+
+Do not write prose outside JSON.

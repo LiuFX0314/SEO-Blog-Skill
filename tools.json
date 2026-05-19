@@ -1,40 +1,96 @@
 {
   "tools": [
     {
-      "name": "generate_b2b_seo_blog",
-      "description": "Generate a full B2B SEO-optimized blog including strategy, outline, article, SEO metadata, and conversion elements.",
+      "name": "analyze_serp",
+      "description": "Analyze the top SERP results for a keyword and return structured gap analysis.",
       "executor": "bash",
-      "command": "node handlers/generate_b2b_seo_blog.js --keyword \"{{keyword}}\" --audience \"{{audience}}\" --length {{length}} --goal \"{{goal}}\" --region \"{{region}}\" --tone \"{{tone}}\"",
+      "command": "node handlers/generate_b2b_seo_blog.js --mode analyze-serp --keyword \"{{keyword}}\" --serp-file \"{{serp_file}}\" --region \"{{region}}\" --device \"{{device}}\" --top-n {{top_n}}",
       "parameters": {
         "type": "object",
         "properties": {
           "keyword": {
             "type": "string",
-            "description": "Main SEO keyword or topic"
+            "description": "Main keyword to analyze"
+          },
+          "serp_file": {
+            "type": "string",
+            "description": "Path to a JSON file containing SERP page data"
+          },
+          "region": {
+            "type": "string",
+            "description": "Target market or locale",
+            "default": "global"
+          },
+          "device": {
+            "type": "string",
+            "enum": [
+              "desktop",
+              "mobile"
+            ],
+            "description": "Device context for SERP analysis",
+            "default": "desktop"
+          },
+          "top_n": {
+            "type": "integer",
+            "description": "How many results to analyze",
+            "default": 5
+          }
+        },
+        "required": [
+          "keyword",
+          "serp_file"
+        ]
+      }
+    },
+    {
+      "name": "generate_b2b_seo_blog",
+      "description": "Generate a full B2B SEO blog with keyword intelligence, SERP gap analysis, outline, article, and SEO metadata.",
+      "executor": "bash",
+      "command": "node handlers/generate_b2b_seo_blog.js --mode full --keyword \"{{keyword}}\" --audience \"{{audience}}\" --length {{length}} --goal \"{{goal}}\" --region \"{{region}}\" --tone \"{{tone}}\" --serp-file \"{{serp_file}}\"",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "keyword": {
+            "type": "string",
+            "description": "Main keyword or topic"
           },
           "audience": {
             "type": "string",
-            "description": "Target audience (e.g., engineers, distributors, procurement managers)"
+            "description": "Target reader persona"
           },
           "length": {
             "type": "integer",
-            "description": "Target word count (e.g., 1000, 1500, 2000)"
+            "description": "Target word count"
           },
           "goal": {
             "type": "string",
-            "enum": ["traffic", "lead_generation", "authority"],
+            "enum": [
+              "traffic",
+              "lead_generation",
+              "authority"
+            ],
             "description": "Primary blog goal"
           },
           "region": {
             "type": "string",
-            "description": "Target market (e.g., global, US, Europe, Southeast Asia)"
+            "description": "Target market or locale",
+            "default": "global"
           },
           "tone": {
             "type": "string",
-            "description": "Writing tone (e.g., professional, technical, persuasive)"
+            "description": "Writing tone",
+            "default": "professional"
+          },
+          "serp_file": {
+            "type": "string",
+            "description": "Optional path to a JSON file containing SERP page data"
           }
         },
-        "required": ["keyword", "audience", "length"]
+        "required": [
+          "keyword",
+          "audience",
+          "length"
+        ]
       }
     }
   ]
